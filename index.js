@@ -67,6 +67,7 @@ function blackJackCalculation()
         message = "You've got blackjack!"
         hasBlackjack = true
         isAlive = false
+        
         chipsCalculation()
     } else {
         message ="You're out of the game"
