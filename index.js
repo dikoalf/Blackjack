@@ -16,10 +16,10 @@ let messageEl = document.getElementById("message")
 let playerEl = document.getElementById("player")
 
 function startGame() {
+    cards = []
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     sum = firstCard + secondCard
-    cards = [firstCard, secondCard]
     isAlive = true
     hasBlackjack = false
     
@@ -31,15 +31,9 @@ function startGame() {
 function renderCards() {
     let cardsText = ""
     let cardImg = ""
-    let number = 0
 
     for (let index = 0; index < cards.length; index++) {
-        if(cards[index] == 10) {
-            number = Math.floor(Math.random() * 3) + 1
-            cardImg = '<img src="assets/card' + cards[index]+ '(' + number + ').png" class="card">'
-        } else {
-            cardImg = '<img src="assets/card' + cards[index]+ '.png" class="card">'
-        }
+        cardImg = '<img src="assets/card' + cards[index]+ '.png" class="card">'
 
         cardsText += cardImg
     }
@@ -51,7 +45,6 @@ function renderCards() {
 function newCard() {
     if(isAlive) {
         let card = getRandomCard()
-        cards.push(card)
         sum += card
 
         renderCards()
@@ -92,12 +85,22 @@ function chipsCalculation()
 
 function getRandomCard() {
     let number = Math.floor(Math.random() * 13) + 1
+    let cardNumber = 0;
 
     if (number == 1) {
         number = 11
     } else if(number >= 11 && number <= 13) {
         number = 10
     }
+
+    if (number == 10) {
+        let tempNumber = Math.floor(Math.random() * 3) + 1
+        cardNumber = number + '(' + tempNumber + ')'
+    } else {
+        cardNumber = number
+    }
+    
+    cards.push(cardNumber)
 
     return number
 }
