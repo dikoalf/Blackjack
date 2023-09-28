@@ -10,10 +10,10 @@ let player = {
     chips : 0
 }
 
-let cardsEl = document.getElementById("cards")
-let sumEl = document.getElementById("sum")
-let messageEl = document.getElementById("message")
-let playerEl = document.getElementById("player")
+const cardsEl = document.getElementById("cards")
+const sumEl = document.getElementById("sum")
+const messageEl = document.getElementById("message")
+const playerEl = document.getElementById("player")
 
 function startGame() {
     cards = []

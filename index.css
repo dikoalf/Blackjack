@@ -29,4 +29,5 @@ button {
     height: 100px;
     border: none;
     border-radius: 5px;
+    padding: 3px;
 }
